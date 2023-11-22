@@ -30,13 +30,16 @@ class Auth:
 
         return True
 
-    def authorization_header(self, request=None) -> str:
+    def session_cookie(self, request=None) -> str:
         """
-            Gets the authorization header from the request
+            Gets the cookie value from the request
             :param request:
             :return:
         """
         if request is not None:
-            return request.headers.get('Authorization', None)
+            return request.cookies.get('session-token')
         else:
             return None
+
+    def current_user(self, request=None):
+        return None

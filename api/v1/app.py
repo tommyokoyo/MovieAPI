@@ -41,6 +41,14 @@ def not_found(error) -> str:
     """
     return jsonify({"error": "Not Found"}), 404
 
+@app.before_request
+def before_request():
+    """
+        Executed before a request is handled
+        :return:
+    """
+    ex_path = ['/api/v1/status']
+
 
 if __name__ == '__main__':
     host = getenv('API_HOST', '0.0.0.0')

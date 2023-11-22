@@ -45,18 +45,7 @@ class User(Base):
         else:
             self._password = hashlib.sha256(pwd.encode()).hexdigest().lower()
 
-    def is_valid_password(self, pwd: str) -> bool:
-        """
-            Validates a password
-            :param pwd:
-            :return:
-        """
-        if pwd is None or type(pwd) is not str:
-            return False
-        if self._password is None:
-            return False
-        pwd_e = pwd.encode()
-        return hashlib.sha256(pwd_e).hexdigest().lower() == self._password
+
 
     def display_name(self) -> str:
         """
